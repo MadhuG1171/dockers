@@ -1,0 +1,31 @@
+# Writing the file for the first time?
+# Here is the best way to write it:
+#   1. List down all the known services first - In this example voting-app, redis, worker-app, db, result-app.
+#   2. Add images and relavant version. Some of the images used here are already built, so we are using it directly.
+#   3. Add ports and mapping. Ports are used in the form of lists and the format is <host_port>:<container_port>
+#   4. Add links 
+version: '3'
+services:
+  redis:
+    image: redis
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  voting-app:
+    image: voting-app
+    ports:
+      - "5001:80"
+    environment:
+      - REDIS_HOST=redis
+
+  worker-app:
+    image: worker-app
+
+  result-app:
+    image: result-app
+    ports:
+      - "5002:80"
