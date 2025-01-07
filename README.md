@@ -1,3 +1,5 @@
+# All Docker commands while I learnt docker
+
 1. docker run <image>
 2. docker stop <container_ID> or docker stop <container_name>
 3. docker run -it <image> bash 
@@ -9,7 +11,7 @@
 6. docker rmi <image_name>
     1. note: while removing make sure none of the containers are using the image.
 
-# Docker commands
+[Continued]
 
 1. docker run centos
 2. docker run -it centos bash
